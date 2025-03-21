@@ -1,5 +1,6 @@
 import Home from './components/Home'
 import LoginConfirmation from './components/LoginConfirmation';
+import Footer from './components/Footer';
 import './App.css'
 import {
   BrowserRouter,
@@ -18,6 +19,7 @@ function App() {
         <Route path="/login-details" element={<LoginConfirmation />} />
       </Routes>
       </BrowserRouter>
+      <Footer/>
     </>
   )
 }

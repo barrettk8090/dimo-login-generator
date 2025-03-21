@@ -35,8 +35,19 @@ export default function LoginConfirmation(){
                 </div>
                 <h3>Your custom login URL:</h3>
                 <p>https://login.dimo.org/?clientId={userClientId}&redirectUri={userRedirectUri}&permissionTemplateId={userPermissionTemplateId}&entryState=VEHICLE_MANAGER&expirationDate={userExpirationDate} </p>
-                <h3>Using the LIWD SDK: </h3>
-                <p>Code Placeholder</p>
+                <h3>Using the DIMO Login React Component SDK: </h3>
+                <p>To use the Login with DIMO React Component SDK, first install:</p>
+                <p>npm install npm i @dimo-network/login-with-dimo</p>
+                <p>Then, import the components:</p>
+                <pre>
+                    {`import { initializeDimoSDK } from "@dimo-network/login-with-dimo";
+                        initializeDimoSDK({
+                            clientId: ${userClientId},
+                            redirectUri: ${userRedirectUri},
+                            apiKey: "YOUR API KEY",
+                            environment: "development" | "production",
+                        });`}
+                </pre>
             </div>
         </DimoAuthProvider>
     )
