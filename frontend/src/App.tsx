@@ -1,16 +1,23 @@
-// import { useState } from 'react'
-import HomeInputs from './components/HomeInputs'
+import Home from './components/Home'
+import LoginConfirmation from './components/LoginConfirmation';
 import './App.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  // Link
+} from "react-router-dom";
 
 function App() {
 
   return (
     <>
-      <div>
-        <h1> Dimo Login Generator </h1>
-      </div>
-
-      <HomeInputs />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login-details" element={<LoginConfirmation />} />
+      </Routes>
+      </BrowserRouter>
     </>
   )
 }
