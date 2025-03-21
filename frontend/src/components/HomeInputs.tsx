@@ -1,17 +1,16 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function HomeInputs(){
     const [userClientId, setUserClientId] = useState<string>('')
     const [userRedirectUri, setUserRedirectUri] = useState<string>('')
     const [userPermissionTemplateId, setUserPermissionTemplateId] = useState<string>('2')
     const [userExpirationDate, setUserExpirationDate] = useState<string>('')
+    const navigate = useNavigate();
 
     function handleLoginCreation(e: React.MouseEvent<HTMLButtonElement>){
         e.preventDefault();
-        console.log('Client ID:', userClientId)
-        console.log('Redirect URI:', userRedirectUri)
-        console.log('Permission Template ID:', userPermissionTemplateId)
-        console.log('Expiration Date:', userExpirationDate)
+        navigate('/login-details', {state: {userClientId: userClientId, userRedirectUri: userRedirectUri, userPermissionTemplateId: userPermissionTemplateId, userExpirationDate: userExpirationDate}})
     }
 
     return (
