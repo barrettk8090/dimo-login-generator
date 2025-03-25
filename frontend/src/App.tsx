@@ -1,5 +1,6 @@
 import Home from './components/Home'
 import LoginConfirmation from './components/LoginConfirmation';
+import DataExplorer from './components/DataExplorer';
 import Footer from './components/Footer';
 import './App.css'
 import {
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login-details" element={<LoginConfirmation />} />
+        <Route path="/data-explorer" element={<DataExplorer />} />
       </Routes>
       </BrowserRouter>
       <Footer/>

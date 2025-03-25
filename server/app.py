@@ -20,9 +20,22 @@ vehicle_jwt = vehicle_jwt_req["token"]
 def vehicles():
     return jsonify(dimo.identity.count_dimo_vehicles())
 
-@app.route("/vehicle/17")
-def vehicle():
-    return jsonify(dimo.telemetry.available_signals(vehicle_jwt=vehicle_jwt, token_id=17))
+@app.route("/vehicle/<token_id>")
+def vehicle_signals(token_id):
+    return jsonify(dimo.telemetry.available_signals(vehicle_jwt=vehicle_jwt, token_id=token_id))
+
+@app.route("/vehicle/signalsLatest/<token_id>/")
+def vehicle_signals_latest(token_id):
+    return jsonify(dimo.telemetry.get_signals_latest(vehicle_jwt=vehicle_jwt, token_id=token_id))
+
+@app.route("/devLicenseInfo/clientId=<client_id>/redirectUri=<redirect_uri>/")
+def dev_license_info(client_id, redirect_uri, api_key):
+    devLicenseInfo = {
+        "client_id": client_id,
+        "redirect_uri": redirect_uri,
+        "api_key": api_key
+    }
+    return jsonify(devLicenseInfo)
     
 if __name__ == '__main__':
     app.run(debug=True)

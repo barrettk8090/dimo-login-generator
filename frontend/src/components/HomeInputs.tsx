@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 export default function HomeInputs(){
     const [userClientId, setUserClientId] = useState<string>('')
     const [userRedirectUri, setUserRedirectUri] = useState<string>('')
+    const [userApiKey, setUserApiKey] = useState<string>('')
     const [userPermissionTemplateId, setUserPermissionTemplateId] = useState<string>('2')
     const [userExpirationDate, setUserExpirationDate] = useState<string>('')
     const navigate = useNavigate();
@@ -36,6 +37,15 @@ export default function HomeInputs(){
                 value={userRedirectUri}
                 onChange={(e) => setUserRedirectUri(e.target.value)} />
 
+            <label>Enter your API Key (Optional for Vehicle Data)</label>
+            <input 
+                type="text" 
+                placeholder="Enter a API Key"
+                id="apikey"
+                name="apikey"
+                required={false}
+                value={userApiKey}
+                onChange={(e) => setUserApiKey(e.target.value)} />
 
             <label>Optional: Enter a permissionTemplateId (defaults to "2")</label>
             <input 
